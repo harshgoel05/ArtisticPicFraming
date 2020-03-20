@@ -8,6 +8,8 @@ import { FooterComponent } from "./footer/footer.component";
 import { ContactComponent } from "./contact/contact.component";
 import { CommonheaderComponent } from "./commonheader/commonheader.component";
 import { Error404Component } from './error404/error404.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ValueframingComponent } from './valueframing/valueframing.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { Error404Component } from './error404/error404.component';
     FooterComponent,
     ContactComponent,
     CommonheaderComponent,
-    Error404Component
+    Error404Component,
+    SidebarComponent,
+    ValueframingComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

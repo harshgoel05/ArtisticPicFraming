@@ -15,6 +15,10 @@ export class CommonheaderComponent implements OnInit {
     console.log(this.router.url);
     if (this.href == "/contact") {
       this.page = "Contact us";
+    } else if (this.href == "/value-framing") {
+      this.page = "Value Framing";
+    } else {
+      this.page = "Unkown";
     }
   }
 }
