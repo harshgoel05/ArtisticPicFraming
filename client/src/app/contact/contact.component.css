@@ -1,0 +1,26 @@
+img {
+  width: 340px;
+}
+td:nth-child(1) {
+  width: 100px;
+}
+
+td:nth-child(2) {
+  width: 250px;
+}
+.row:nth-child(2) {
+  margin-top: 100px;
+}
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: 400px;
+  width: 500px;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 400px;
+  width: 500px;
+}
