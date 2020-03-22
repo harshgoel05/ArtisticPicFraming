@@ -10,6 +10,11 @@ import { CommonheaderComponent } from "./commonheader/commonheader.component";
 import { Error404Component } from './error404/error404.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ValueframingComponent } from './valueframing/valueframing.component';
+import { SpecialoffersComponent } from './specialoffers/specialoffers.component';
+import { PrakingmapComponent } from './prakingmap/prakingmap.component';
+import { PrintingservicesComponent } from './printingservices/printingservices.component';
+import { HomeconsultingComponent } from './homeconsulting/homeconsulting.component';
+import { DeliveryinstallComponent } from './deliveryinstall/deliveryinstall.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { ValueframingComponent } from './valueframing/valueframing.component';
     CommonheaderComponent,
     Error404Component,
     SidebarComponent,
-    ValueframingComponent
+    ValueframingComponent,
+    SpecialoffersComponent,
+    PrakingmapComponent,
+    PrintingservicesComponent,
+    HomeconsultingComponent,
+    DeliveryinstallComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

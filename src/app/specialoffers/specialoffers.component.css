@@ -1,0 +1,31 @@
+table {
+  margin-top: 13px;
+  margin-left: 20px;
+  width: 100%;
+  text-align: center;
+}
+td {
+  padding: 13px 24px;
+  border: 1px solid grey;
+}
+.text-cont {
+  margin-bottom: 50px;
+}
+@media (max-width: 767px) {
+  table {
+    margin-top: 20px;
+    margin-left: 0px;
+    font-size: 14px;
+  }
+  td {
+    padding: 5px 10px;
+    border: 1px solid grey;
+  }
+  .text-cont {
+    margin-bottom: 50px;
+  }
+}
+.text-cont ul {
+  list-style: disc;
+  margin-left: 30px;
+}
