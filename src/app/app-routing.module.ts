@@ -9,10 +9,12 @@ import { PrakingmapComponent } from "./prakingmap/prakingmap.component";
 import { PrintingservicesComponent } from "./printingservices/printingservices.component";
 import { HomeconsultingComponent } from "./homeconsulting/homeconsulting.component";
 import { DeliveryinstallComponent } from "./deliveryinstall/deliveryinstall.component";
+import { LtsdesignComponent} from "./ltsdesign/ltsdesign.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
+  { path: "lstdesigns", component: LtsdesignComponent },
   { path: "contact", component: ContactComponent },
   { path: "value-framing", component: ValueframingComponent },
   { path: "special-offers", component: SpecialoffersComponent },
@@ -28,3 +30,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+export const routingComponents = [HomeComponent, LtsdesignComponent, ContactComponent, ValueframingComponent,
+   SpecialoffersComponent, PrakingmapComponent, PrintingservicesComponent, HomeconsultingComponent, 
+   DeliveryinstallComponent, Error404Component];

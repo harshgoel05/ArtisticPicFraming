@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Artistic-Picture-Framing"
+    }
+  },
+  "defaultProject": "Artistic-Picture-Framing",
+  "cli": {
+    "analytics": "9652df0d-210b-4a80-8a7d-d50cbd4b2830"
+  }
 }
