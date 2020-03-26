@@ -1,0 +1,46 @@
+.rev_slider ul {
+  position: relative;
+}
+.rev_slider .posrel {
+  position: absolute;
+  top: 37%;
+  left: 10%;
+}
+.education-text {
+  font-size: 70px;
+  color: white !important;
+  font-weight: 900;
+}
+.posrel p {
+  color: white;
+  margin-top: 40px;
+  width: 700px;
+}
+.posrel .btn-50 {
+  margin-top: 30px;
+}
+@media (max-width: 767px) {
+  .posrel img {
+    height: 1000px !important;
+    z-index: 1000;
+  }
+  .flat-header {
+    height: 1000px !important;
+    z-index: 1000;
+  }
+  .top-bar .clearfix {
+    height: 1000px !important;
+    z-index: 1000;
+  }
+  .getintouch {
+    transform: translateY(0) !important;
+    margin-bottom: 30px;
+  }
+  .title {
+    text-align: center;
+    font-size: 40px;
+  }
+}
+.flat-benefit-style2 {
+  margin-top: 55px;
+}

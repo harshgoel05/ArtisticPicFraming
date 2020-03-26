@@ -84,3 +84,8 @@
 #sidebar-social .linkedin:hover {
   background-color: #0976b4;
 }
+@media (max-width: 991px) {
+  #sidebar-social {
+    display: none;
+  }
+}
