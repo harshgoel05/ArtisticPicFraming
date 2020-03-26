@@ -9,19 +9,26 @@ import { PrakingmapComponent } from "./prakingmap/prakingmap.component";
 import { PrintingservicesComponent } from "./printingservices/printingservices.component";
 import { HomeconsultingComponent } from "./homeconsulting/homeconsulting.component";
 import { DeliveryinstallComponent } from "./deliveryinstall/deliveryinstall.component";
-import { LtsdesignComponent} from "./ltsdesign/ltsdesign.component";
+import { LtsdesignComponent } from "./ltsdesign/ltsdesign.component";
+import { BlogComponent } from "./blog/blog.component";
+import { CraftmanframingComponent } from "./craftmanframing/craftmanframing.component";
+import { CorporateconsultingComponent } from "./corporateconsulting/corporateconsulting.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
-  { path: "lstdesigns", component: LtsdesignComponent },
+  { path: "latest-designs", component: LtsdesignComponent },
+  { path: "craftman-framing", component: CraftmanframingComponent },
   { path: "contact", component: ContactComponent },
   { path: "value-framing", component: ValueframingComponent },
   { path: "special-offers", component: SpecialoffersComponent },
   { path: "parkingmap", component: PrakingmapComponent },
   { path: "printing-services", component: PrintingservicesComponent },
   { path: "home-consulting", component: HomeconsultingComponent },
+  { path: "corporate-consulting", component: CorporateconsultingComponent },
   { path: "delivery-and-installation", component: DeliveryinstallComponent },
+  { path: "canvas-strecting", component: CanvasPattern },
+  { path: "blog", component: BlogComponent },
   { path: "**", component: Error404Component }
 ];
 
@@ -30,6 +37,15 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
-export const routingComponents = [HomeComponent, LtsdesignComponent, ContactComponent, ValueframingComponent,
-   SpecialoffersComponent, PrakingmapComponent, PrintingservicesComponent, HomeconsultingComponent, 
-   DeliveryinstallComponent, Error404Component];
+export const routingComponents = [
+  HomeComponent,
+  LtsdesignComponent,
+  ContactComponent,
+  ValueframingComponent,
+  SpecialoffersComponent,
+  PrakingmapComponent,
+  PrintingservicesComponent,
+  HomeconsultingComponent,
+  DeliveryinstallComponent,
+  Error404Component
+];

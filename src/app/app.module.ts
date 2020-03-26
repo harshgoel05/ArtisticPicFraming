@@ -6,6 +6,11 @@ import { AppComponent } from "./app.component";
 import { FooterComponent } from "./footer/footer.component";
 import { CommonheaderComponent } from "./commonheader/commonheader.component";
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { BlogComponent } from './blog/blog.component';
+import { DesignprocessComponent } from './designprocess/designprocess.component';
+import { CraftmanframingComponent } from './craftmanframing/craftmanframing.component';
+import { CorporateconsultingComponent } from './corporateconsulting/corporateconsulting.component';
+import { CanvasStretchingComponent } from './canvas-stretching/canvas-stretching.component';
 
 
 @NgModule({
@@ -14,7 +19,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FooterComponent,
     CommonheaderComponent,
     SidebarComponent,
-    routingComponents
+    routingComponents,
+    BlogComponent,
+    DesignprocessComponent,
+    CraftmanframingComponent,
+    CorporateconsultingComponent,
+    CanvasStretchingComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
