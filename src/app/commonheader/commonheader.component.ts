@@ -15,6 +15,14 @@ export class CommonheaderComponent implements OnInit {
     console.log(this.router.url);
     if (this.href == "/contact") {
       this.page = "Contact us";
+    } else if (this.href == "/latest-designs") {
+      this.page = "Latest Designs";
+    } else if (this.href == "/craftman-framing") {
+      this.page = "Craftman Framing";
+    } else if (this.href == "/corporate-consulting") {
+      this.page = "Corporate Consulting";
+    } else if (this.href == "/canvas-stretching") {
+      this.page = "Canvas Stretching";
     } else if (this.href == "/value-framing") {
       this.page = "Value Framing";
     } else if (this.href == "/printing-services") {
@@ -28,7 +36,7 @@ export class CommonheaderComponent implements OnInit {
     } else if (this.href == "/delivery-and-installation") {
       this.page = "Delivery & Installation";
     } else {
-      this.page = "Unkown";
+      this.page = "Page not Found";
     }
   }
 }

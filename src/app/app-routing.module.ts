@@ -13,6 +13,7 @@ import { LtsdesignComponent } from "./ltsdesign/ltsdesign.component";
 import { BlogComponent } from "./blog/blog.component";
 import { CraftmanframingComponent } from "./craftmanframing/craftmanframing.component";
 import { CorporateconsultingComponent } from "./corporateconsulting/corporateconsulting.component";
+import { CanvasStretchingComponent } from "./canvas-stretching/canvas-stretching.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: "home-consulting", component: HomeconsultingComponent },
   { path: "corporate-consulting", component: CorporateconsultingComponent },
   { path: "delivery-and-installation", component: DeliveryinstallComponent },
-  { path: "canvas-strecting", component: CanvasPattern },
+  { path: "canvas-stretching", component: CanvasStretchingComponent },
   { path: "blog", component: BlogComponent },
   { path: "**", component: Error404Component }
 ];
