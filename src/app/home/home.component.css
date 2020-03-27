@@ -19,7 +19,7 @@
 .posrel .btn-50 {
   margin-top: 30px;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .posrel img {
     height: 1000px !important;
     z-index: 1000;
@@ -38,9 +38,44 @@
   }
   .title {
     text-align: center;
-    font-size: 40px;
+    font-size: 37px !important;
   }
 }
 .flat-benefit-style2 {
   margin-top: 55px;
+}
+.title {
+  font-weight: 900;
+  font-size: 60px;
+}
+.flat-benefit-style2 h1 {
+  font-size: 30px;
+  color: black;
+  font-weight: 500;
+  margin: 20px !important;
+  padding-top: 30px;
+  text-decoration: none;
+  position: relative;
+}
+.flat-benefit-style2 h1:after {
+  position: absolute;
+  content: "";
+  height: 3.5px;
+  bottom: -12px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 40%;
+  background: #fbb545;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.why-choose-us .getintouch {
+  transform: translateY(0) !important;
+}
+.why-choose-us {
+  margin-bottom: 50px;
 }
