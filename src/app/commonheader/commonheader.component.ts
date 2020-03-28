@@ -17,6 +17,8 @@ export class CommonheaderComponent implements OnInit {
       this.page = "Contact us";
     } else if (this.href == "/latest-designs") {
       this.page = "Latest Designs";
+    } else if (this.href == "/design-process") {
+      this.page = "Design and Process";
     } else if (this.href == "/craftman-framing") {
       this.page = "Craftman Framing";
     } else if (this.href == "/corporate-consulting") {

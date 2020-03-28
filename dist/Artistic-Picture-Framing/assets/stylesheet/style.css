@@ -1275,13 +1275,6 @@ input::-webkit-input-placeholder {
   padding-right: 0;
 }
 
-/*flat-slider*/
-.flat-slider .rev_slider_wrapper ul li .education {
-  font-weight: 700;
-}
-.flat-slider .rev_slider_wrapper ul li .education .education-text {
-  letter-spacing: 1.7px !important;
-}
 .flat-slider .slotholder {
   z-index: -1 !important;
 }
@@ -1359,7 +1352,7 @@ input::-webkit-input-placeholder {
   position: absolute;
   left: 0;
   top: 100%;
-  min-width: 200px;
+  min-width: 230px;
   padding: 15px 0px;
   opacity: 0;
   visibility: hidden;
@@ -1826,17 +1819,6 @@ input::-webkit-input-placeholder {
   position: relative;
   transform: translateY(-48%);
   z-index: 9999;
-}
-
-.flat-slider .rev_slider_wrapper #rev-slider1 ul li .sl-address a {
-  font-size: 16px;
-  font-weight: 500;
-}
-.flat-slider .rev_slider_wrapper #rev-slider1 ul li .sl-address a i {
-  margin-right: 10px;
-}
-.flat-slider .rev_slider_wrapper #rev-slider1 ul li .sl-address a.sl-phone {
-  margin-right: 40px;
 }
 
 .online-courses-style1 {

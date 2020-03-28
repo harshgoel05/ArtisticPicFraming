@@ -14,6 +14,7 @@ import { BlogComponent } from "./blog/blog.component";
 import { CraftmanframingComponent } from "./craftmanframing/craftmanframing.component";
 import { CorporateconsultingComponent } from "./corporateconsulting/corporateconsulting.component";
 import { CanvasStretchingComponent } from "./canvas-stretching/canvas-stretching.component";
+import { DesignprocessComponent } from "./designprocess/designprocess.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: "value-framing", component: ValueframingComponent },
   { path: "special-offers", component: SpecialoffersComponent },
   { path: "parkingmap", component: PrakingmapComponent },
+  { path: "design-process", component: DesignprocessComponent },
   { path: "printing-services", component: PrintingservicesComponent },
   { path: "home-consulting", component: HomeconsultingComponent },
   { path: "corporate-consulting", component: CorporateconsultingComponent },
