@@ -69,10 +69,14 @@ app.get('/payment', (req, res) => {
           country: 'US',
         }}},{idempotencyKey}
     
-    )})
-    .catch(err=>console.log(err))
+    ).catch(err=>{console.log(err);
+    res.send({'payment':'unsuccess'})
+    }
+    )
     .then(charge => {res.status(200).send({'payment':'success'})
     console.log(charge)
+  })
+    
   
 
   });

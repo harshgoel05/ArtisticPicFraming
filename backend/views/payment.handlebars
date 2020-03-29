@@ -1,0 +1,28 @@
+<section class="py-2">
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <h1 class="display-3 mt-3 pt-5">
+          ArtisticPicFraming
+        </h1>
+        <form action="/charge" method="POST">
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key='pk_test_Jo6Z70CqWXvzFqGYB8XLGxQo00kZVvz4Kk'
+            data-amount="2500"
+            data-name="Artistic frame"
+            data-description="ArtisticPicFraming"
+            data-image=""
+            data-locale="auto">
+          </script>
+          <script>
+            // Hide default stripe button
+            document.getElementsByClassName('stripe-button-el')[0].style.display = 'none';
+          </script>
+          <button type="submit" class="btn btn-outline-dark text-white btn-lg">Purchase For $2500 </button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <img src="/img/book.png" alt="" class="img-fluid">
+      </div>
+    </div>
+  </section>
