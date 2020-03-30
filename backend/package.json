@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.0",
     "express-handler": "^0.2.0",
@@ -19,6 +20,7 @@
     "nodemailer": "^6.4.6",
     "nodemon": "^2.0.2",
     "payumoney_nodejs": "^2.0.4",
+    "qr-image": "^3.2.0",
     "stripe": "^8.37.0",
     "uuid": "^7.0.2"
   }

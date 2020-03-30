@@ -11,7 +11,12 @@ import { DesignprocessComponent } from './designprocess/designprocess.component'
 import { CraftmanframingComponent } from './craftmanframing/craftmanframing.component';
 import { CorporateconsultingComponent } from './corporateconsulting/corporateconsulting.component';
 import { CanvasStretchingComponent } from './canvas-stretching/canvas-stretching.component';
+import { PaymentComponent } from './payment/payment.component';
+import { BackendService} from './backend.service'
+import {HttpClientModule} from '@angular/common/http'
 
+import {FormsModule,ReactiveFormsModule} from '@angular/forms'
+import { NgxStripeModule } from 'ngx-stripe';
 
 @NgModule({
   declarations: [
@@ -24,10 +29,17 @@ import { CanvasStretchingComponent } from './canvas-stretching/canvas-stretching
     DesignprocessComponent,
     CraftmanframingComponent,
     CorporateconsultingComponent,
-    CanvasStretchingComponent
-  ],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+    CanvasStretchingComponent,
+    PaymentComponent,
+],
+  imports: [BrowserModule, 
+    AppRoutingModule,
+    HttpClientModule,    
+    NgxStripeModule.forRoot('pk_test_Jo6Z70CqWXvzFqGYB8XLGxQo00kZVvz4Kk'),
+    FormsModule,
+    ReactiveFormsModule,
+],
+  providers: [BackendService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
