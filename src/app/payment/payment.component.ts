@@ -16,7 +16,7 @@ email:String;
 
 
 elementsOptions: ElementsOptions = {
-  locale: 'es'
+  locale: 'auto'
   };
 
   stripeTest: FormGroup;
@@ -40,10 +40,10 @@ iconColor: '#666EE8',
 color: '#31325F',
 lineHeight: '40px',
 fontWeight: 300,
-fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+fontFamily:  'Roboto, Open Sans, Segoe UI, sans-serif',
 fontSize: '18px',
 '::placeholder': {
-color: '#CFD7E0'
+  color: '#87BBFD'
 }
 }
 }
