@@ -1,0 +1,10 @@
+.about-introduce h2 {
+  font-size: 22px;
+  color: #000;
+  font-weight: 600;
+  margin-top: 13px;
+  margin-bottom: 7px;
+}
+.col-md-6 {
+  min-height: 450px;
+}
