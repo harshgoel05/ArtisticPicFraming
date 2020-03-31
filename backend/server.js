@@ -18,6 +18,18 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static('./public'));
+const db=process.env.db
+//database Connection
+mongoose.connect(db,{useNewUrlParser: true},err=>{
+    if(err) 
+{
+    console.log('cannot connect')
+}
+else
+{
+    console.log('connected to database');
+}
+});
 //Email authorisation
 var transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -87,6 +99,12 @@ app.get('/payment', (req, res) => {
       if(charge.status=='succeeded')
       res.status(200).send({'payment':true})
       console.log(charge)
+      User.updateOne({user_id:req.body.user_id},{address:charge.shipping.address,email:req.body.stripeEmail},(err,data)=>{
+        if(err)
+        console.log('Cannot enter address')
+        else
+        res.status(200).status({'adress':'updated'})
+      })
     var qr_png = qr.imageSync('price:'+amount+'\nProduct name:ArtisticFrame', { type: 'png' });
     let qr_name='qr_code.png'
     fs.writeFileSync('./public/' + qr_name,qr_png , (err) => {
@@ -117,7 +135,7 @@ app.get('/payment', (req, res) => {
         to: 'sanskarag23@gmail.com',
         subject: 'New Order Created',
         text: 'You order has been succefully confirmed\n'+charge.receipt_url,
-        html:'<h1>Order and User Details/h1><br><p>User_id:'+req.body.user_id+'<br>Name:'+charge.billing_details.name+'<br><h4>address<h4>:'+charge.shipping.address.line1+','+charge.shipping.address.city+','+charge.shipping.address.state+','+charge.shipping.address.country+'<br></p><img src="cid:qrcode">',
+        html:'<h1>Order and User Details</h1><br><p>User_id:'+req.body.user_id+'<br>Name:'+charge.billing_details.name+'<br><h4>address<h4>:'+charge.shipping.address.line1+','+charge.shipping.address.city+','+charge.shipping.address.state+','+charge.shipping.address.country+'<br></p><img src="cid:qrcode">',
         attachments:[
             {
               filename:qr_name,
