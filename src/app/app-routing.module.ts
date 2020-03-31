@@ -32,9 +32,10 @@ const routes: Routes = [
   { path: "corporate-consulting", component: CorporateconsultingComponent },
   { path: "delivery-and-installation", component: DeliveryinstallComponent },
   { path: "canvas-stretching", component: CanvasStretchingComponent },
+  { path: "payment", component: PaymentComponent },
   { path: "blog", component: BlogComponent },
   { path: "**", component: Error404Component },
-  { path: "payment", component: PaymentComponent }
+  
 ];
 
 @NgModule({

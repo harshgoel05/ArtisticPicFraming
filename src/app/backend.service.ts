@@ -10,7 +10,7 @@ export class BackendService {
   BaseUrl='http://localhost:3000';
   url=this.BaseUrl+'/api/addtocart'
   paymenturl=this.BaseUrl+'/charge'
-  create_id=this.BaseUrl+'/api/create_id'
+  create_id='http://localhost:3000/api/create_id'
 
   addtocart(data)
   {
