@@ -4,20 +4,21 @@ const app=express()
 const cors=require('cors')
 const qr=require('qr-image')
 const fs = require('fs');
-const qr1 = require('qr-encode')
 const bodyParser=require('body-parser')
 const api=require('./api')
 const uuid=require('uuid/v4')
 const nodemailer = require('nodemailer');
-const stripe = require('stripe')('sk_test_9UhQivpSo4yuuExMR7ouzfei00Z3EieXgc');
+const stripe = require('stripe')(process.env.stripe_secret_key);
 const exphbs = require('express-handlebars');
+const http = require('http')
+const url='http://localhost:3000/api'
 app.use(cors());
 app.engine('handlebars',exphbs({defaultLayout:'main'}));
 app.set('view engine', 'handlebars');
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}));
-
-app.use('/api',api);
+app.use(express.static('./public'));
+//Email authorisation
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -25,26 +26,33 @@ var transporter = nodemailer.createTransport({
     pass: process.env.PASSWORD  
   }
 });
-app.use(express.static('./public'))
-var receipt_url;
+var transporter1 = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user:process.env.EMAIL,
+    pass: process.env.PASSWORD  
+  }
+});
+//http authorization
+const options = {
+  hostname: url,
+  port: 443,
+  path: '/add_address&email',
+  method: 'POST',
+   body:'',
+
+ 
+  
+}
 
 
-
-
-
-
+app.use('/api',api);
 app.get('/',function(req,res)
 {
     res.send('connected')
 })
-let  amount;
-
-
 app.get('/payment', (req, res) => {
-  
-
-
-  res.render('payment', {
+   res.render('payment', {
       stripePublishableKey: 'pk_test_Jo6Z70CqWXvzFqGYB8XLGxQo00kZVvz4Kk'
     });
   });
@@ -54,6 +62,8 @@ app.get('/payment', (req, res) => {
     const amount = 2500;
     console.log(req.body)
     const idempotencyKey=uuid()
+
+   
    
     stripe.customers.create({
       email: req.body.stripeEmail,
@@ -78,7 +88,7 @@ app.get('/payment', (req, res) => {
       res.status(200).send({'payment':true})
       console.log(charge)
     var qr_png = qr.imageSync('price:'+amount+'\nProduct name:ArtisticFrame', { type: 'png' });
-    let qr_name='new1.png'
+    let qr_name='qr_code.png'
     fs.writeFileSync('./public/' + qr_name,qr_png , (err) => {
         
       if(err){
@@ -92,12 +102,27 @@ app.get('/payment', (req, res) => {
         to: req.body.stripeEmail,
         subject: 'Order Confirmation',
         text: 'You order has been succefully confirmed\n'+charge.receipt_url,
-        html:'<h1>Scan the code</h1><br><img src="cid:img1"><style>h1{margin:20px;}</style><a href="'+charge.receipt_url+'"><button>Receipt</button></a>',
+        html:'<h1>Scan the code</h1><br><img src="cid:qrcode"><style>h1{margin:20px;}</style><a href="'+charge.receipt_url+'"><button>Receipt</button></a>',
         attachments:[
             {
-              filename:'new1.png',
-              path:'./public/new1.png',
-              cid:'img1'
+              filename:qr_name,
+              path:'./public/'+qr_name,
+              cid:'qrcode'
+
+            }
+        ]
+      };
+      var mailOptions_owner = {
+        from: 'predatesan@gmail.com',
+        to: 'sanskarag23@gmail.com',
+        subject: 'New Order Created',
+        text: 'You order has been succefully confirmed\n'+charge.receipt_url,
+        html:'<h1>Order and User Details/h1><br><p>User_id:'+req.body.user_id+'<br>Name:'+charge.billing_details.name+'<br><h4>address<h4>:'+charge.shipping.address.line1+','+charge.shipping.address.city+','+charge.shipping.address.state+','+charge.shipping.address.country+'<br></p><img src="cid:qrcode">',
+        attachments:[
+            {
+              filename:qr_name,
+              path:'./public/'+qr_name,
+              cid:'qrcode'
 
             }
         ]
@@ -109,7 +134,19 @@ app.get('/payment', (req, res) => {
         console.log('Email sent: ' + info.response);
       }
     });
+    transporter1.sendMail(mailOptions_owner, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+    
   })
+  
+ 
+
   
   
     

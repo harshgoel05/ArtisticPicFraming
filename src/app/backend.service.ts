@@ -7,8 +7,10 @@ import {HttpClient} from '@angular/common/http'
 export class BackendService {
 
   constructor(private http:HttpClient) { }
-  url='http://localhost:3000/api/addtocart'
-  paymenturl='http://localhost:3000/charge'
+  BaseUrl='http://localhost:3000';
+  url=this.BaseUrl+'/api/addtocart'
+  paymenturl=this.BaseUrl+'/charge'
+  create_id=this.BaseUrl+'/api/create_id'
 
   addtocart(data)
   {
@@ -17,6 +19,10 @@ export class BackendService {
   payment(data)
   {
     return this.http.post<any>(this.paymenturl,data)
+  }
+  create(data)
+  {
+    return this.http.post<any>(this.create_id,data);
   }
   
 }
