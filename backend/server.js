@@ -11,6 +11,9 @@ const nodemailer = require('nodemailer');
 const stripe = require('stripe')(process.env.stripe_secret_key);
 const exphbs = require('express-handlebars');
 const http = require('http')
+const router=express.Router();
+const mongoose=require('mongoose')
+const User=require('./model/user')
 const url='http://localhost:3000/api'
 app.use(cors());
 app.engine('handlebars',exphbs({defaultLayout:'main'}));
