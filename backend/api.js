@@ -4,7 +4,8 @@ const mongoose=require('mongoose')
 const User=require('./model/user')
 
 
-const db='mongodb+srv://san:1234@cluster0-nmxs5.mongodb.net/cart?retryWrites=true&w=majority'
+
+const db=process.env.db
 
 mongoose.connect(db,{useNewUrlParser: true},err=>{
     if(err) 
@@ -92,6 +93,16 @@ router.post('/show_cart',(req,res)=>
         {
             res.status(200).send(data)
         }
+    })
+})
+router.post('/add_address&email',(req,res)=>{
+    const user=req.body
+    User.updateOne({user_id:user.usr_id},{address:user.address,email:user.email},(err,data)=>
+    {
+        if(err)
+        console.log('cannot enter address')
+        else
+        res.status(200).send({'Address':true,'email':true})
     })
 })
 

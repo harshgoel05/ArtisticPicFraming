@@ -71,31 +71,32 @@ export class PaymentComponent implements OnInit {
   }
   private payment_details = { stripeEmail: "" };
   buy() {
-    const name = this.stripeTest.get("name").value;
-    this.stripeService.createToken(this.card, { name }).subscribe(obj => {
-      if (obj.token) {
-        this.back
-          .payment({
-            stripeEmail: this.stripeTest.get("email").value,
-            stripeToken: obj.token.id,
-            name: name,
-            address: {
-              line1: this.stripeTest.get("line1").value,
-              postal_code: this.stripeTest.get("postalcode").value,
-              city: this.stripeTest.get("city").value,
-              state: this.stripeTest.get("state").value,
-              country: this.stripeTest.get("country").value
-            }
-          })
-          .subscribe(res => {
-            console.log(res);
-            this.payment_status = res.payment;
-            setTimeout(() => {
-              this.route.navigate(["/Home"]);
-            }, 50000);
-          });
-      } else {
-      }
-    });
+    
+    const name = this.stripeTest.get('name').value ;
+    this.stripeService
+    .createToken(this.card, { name })
+    .subscribe(obj => {
+    if (obj.token) {
+    this.back.payment({'user_id':localStorage.getItem('user_id'),'stripeEmail':this.stripeTest.get('email').value,
+                      'stripeToken':obj.token.id,
+                      'name':name,
+                      'address':{line1:this.stripeTest.get('line1').value,
+                                 postal_code:this.stripeTest.get('postalcode').value ,
+                                 city:this.stripeTest.get('city').value,
+                                state:this.stripeTest.get('state').value,
+                              country:this.stripeTest.get('country').value  }})
+    .subscribe(res=>{console.log(res);
+                    this.payment_status=res.payment;
+                  setTimeout(()=>{
+                    this.route.navigate(['/Home'])
+                  },50000)}
+                    
+                    
+                    )
+    }
+    else{
+  
+    }
+  });
   }
 }
