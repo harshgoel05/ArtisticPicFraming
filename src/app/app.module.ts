@@ -17,6 +17,7 @@ import {HttpClientModule} from '@angular/common/http'
 
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import { NgxStripeModule } from 'ngx-stripe';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NgxStripeModule } from 'ngx-stripe';
     CorporateconsultingComponent,
     CanvasStretchingComponent,
     PaymentComponent,
+    CartComponent,
 ],
   imports: [BrowserModule, 
     AppRoutingModule,

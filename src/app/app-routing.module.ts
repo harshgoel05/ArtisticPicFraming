@@ -15,7 +15,8 @@ import { CraftmanframingComponent } from "./craftmanframing/craftmanframing.comp
 import { CorporateconsultingComponent } from "./corporateconsulting/corporateconsulting.component";
 import { CanvasStretchingComponent } from "./canvas-stretching/canvas-stretching.component";
 import { DesignprocessComponent } from "./designprocess/designprocess.component";
-import { PaymentComponent } from './payment/payment.component';
+import { PaymentComponent } from "./payment/payment.component";
+import { CartComponent } from "./cart/cart.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -33,8 +34,9 @@ const routes: Routes = [
   { path: "delivery-and-installation", component: DeliveryinstallComponent },
   { path: "canvas-stretching", component: CanvasStretchingComponent },
   { path: "blog", component: BlogComponent },
-  { path: "**", component: Error404Component },
-  { path: "payment", component: PaymentComponent }
+  { path: "payment", component: PaymentComponent },
+  { path: "cart", component: CartComponent },
+  { path: "**", component: Error404Component }
 ];
 
 @NgModule({

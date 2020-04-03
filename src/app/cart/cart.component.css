@@ -1,0 +1,44 @@
+.box {
+  background-color: #f9f9f9;
+  border: 1px solid gray;
+  padding: 30px;
+  margin: 6px;
+}
+.box h1 {
+  font-size: 30px;
+  color: black;
+  margin-bottom: 10px;
+}
+.removetext {
+  color: rgb(247, 80, 80);
+  font-weight: 700;
+  cursor: pointer;
+  padding-left: 10px;
+}
+.checkoutbox {
+  background-color: #f9f9f9;
+  border: 1px solid rgb(161, 160, 160);
+  padding: 15px;
+}
+.checkoutbox h1 {
+  font-size: 30px;
+  color: black;
+  margin-bottom: 40px;
+}
+.checkoutbox p {
+  color: rgb(34, 34, 34);
+  padding: auto 10px;
+}
+
+hr {
+  color: black;
+  width: 80%;
+  background-color: rgb(214, 214, 214);
+}
+.finalhr {
+  width: 100%;
+  background-color: rgb(112, 112, 112);
+}
+.totalcol p {
+  font-weight: 800;
+}

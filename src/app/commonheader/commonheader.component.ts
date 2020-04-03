@@ -37,6 +37,8 @@ export class CommonheaderComponent implements OnInit {
       this.page = "Home Consulting";
     } else if (this.href == "/delivery-and-installation") {
       this.page = "Delivery & Installation";
+    } else if (this.href == "/cart") {
+      this.page = "Your Cart";
     } else {
       this.page = "Page not Found";
     }
