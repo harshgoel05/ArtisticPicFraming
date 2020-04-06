@@ -1,17 +1,18 @@
+<app-commonheader></app-commonheader>
 <div class="container" *ngIf='!payment_status'>
-<form novalidate (ngSubmit)="buy($event)" [formGroup]="stripeTest">
-  <div class="col-lg-6">
-    <label>Name</label>
-  <input class="form-control" type="text" formControlName="name" placeholder="Jane Doe" required>
-  </div>
-  <div class="col-lg-6">
-    <label>Email</label>
-    <input class="form-control" formControlName="email" type="email" >
-  </div>
-  <div class="col-lg-6">
-    <label>Adress<br>line1</label>
-    <input class="form-control " formControlName="line1" type="email" [(ngModel)]='text' >
-  </div>
+  <form novalidate (ngSubmit)="buy()" [formGroup]="stripeTest">
+    <div class="col-lg-6">
+      <label>Name</label>
+      <input class="form-control" type="text" formControlName="name" placeholder="Jane Doe" required>
+    </div>
+    <div class="col-lg-6">
+      <label>Email</label>
+      <input class="form-control" formControlName="email" type="email" >
+    </div>
+    <div class="col-lg-6">
+      <label>Adress<br>line1</label>
+      <input class="form-control " formControlName="line1" type="email" [(ngModel)]='text' >
+    </div>
   <div class="col-lg-6">
     <div class="row">
       <div class="col">
