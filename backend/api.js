@@ -59,7 +59,7 @@ router.post('/remove_from_cart',(req,res)=>
 {
     const item=req.body
     
-    User.update({user_id:item.user_id},{$pull:{cart:{product_id:item.product_id}}},(err,data)=>{
+    User.update({user_id:item.user_id},{$pull:{cart:{name:item.name}}},(err,data)=>{
         if(err)
         {
             console.log("error in adding to cart");
@@ -85,7 +85,7 @@ router.post('/change_quantity',(req,res)=>{
 })
 router.post('/show_cart',(req,res)=>
 {   const user=req.body
-    User.findOne({user_id:user.user_id},(err,data)=>
+    User.findOne({user_id:user.user_id},{cart:1},(err,data)=>
     {
         if(err)
         console.log("cannot fetch data")

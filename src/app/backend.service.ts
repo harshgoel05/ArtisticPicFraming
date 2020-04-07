@@ -21,11 +21,17 @@ export class BackendService {
   create_id='http://localhost:3000/api/create_id'
   cart_amount=this.BaseUrl+'/api/current_amount'
   cart_amount_url=this.BaseUrl+'/api/cart_amount'
+  cart_data_url=this.BaseUrl+'/api/show_cart'
+  remove_from_cart=this.BaseUrl+'/api/remove_from_cart'
+  user_id={'user_id':localStorage.getItem('user_id')}
 
 
   addtocart(data)
   {
     return this.http.post<any>(this.url,data)
+  }
+  cart_data(){
+    return this.http.post<any>(this.cart_data_url,this.user_id)
   }
   payment(data)
   {
@@ -42,6 +48,9 @@ export class BackendService {
   cart_amount_retrieve(data)
   {
     return this.http.post<any>(this.cart_amount_url,data)
+  }
+  remove_item(data){
+    return this.http.post<any>(this.remove_from_cart,data)
   }
   
 }

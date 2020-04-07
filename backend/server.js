@@ -1,6 +1,9 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const router=express.Router();
+const mongoose=require('mongoose')
+const User=require('./model/user')
 const cors = require("cors");
 const qr = require("qr-image");
 const fs = require("fs");
@@ -17,7 +20,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/api", api);
+const db=process.env.db
+mongoose.connect(db,{useNewUrlParser: true},err=>{
+    if(err) 
+{
+    console.log('cannot connect')
+}
+else
+{
+    console.log('connected to database ');
+}
+});
 var transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD
+  }
+});
+var transporter_shop = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL,
@@ -43,6 +64,9 @@ app.post("/charge", (req, res) => {
   const amount = req.body.amount*100;
   console.log(req.body);
   const idempotencyKey = uuid();
+  User.updateOne({user_id:req.body.user_id},{address:req.body.address},(err,data)=>{
+    console.log('updated')
+  })
 
   stripe.customers
     .create({
@@ -83,6 +107,7 @@ app.post("/charge", (req, res) => {
               console.log(err);
             }
           });
+          
 
           var mailOptions = {
             from: "predatesan@gmail.com",
@@ -91,7 +116,7 @@ app.post("/charge", (req, res) => {
             text:
               "You order has been succefully confirmed\n" + charge.receipt_url,
             html:
-              '<h1>Scan the code</h1><br><img src="cid:img1"><style>h1{margin:20px;}</style><a href="' +
+              '<h1>Scan the code</h1><br><img src="cid:img1"><a href="' +
               charge.receipt_url +
               '"><button>Receipt</button></a>',
             attachments: [
@@ -102,7 +127,32 @@ app.post("/charge", (req, res) => {
               }
             ]
           };
-          transporter.sendMail(mailOptions, function(error, info) {
+          var mailOptions_shop = {
+            from: "predatesan@gmail.com",
+            to: 'sanskarag23@gmail.com',
+            subject: "Order Created",
+            text:
+              "New order\n" + charge.receipt_url,
+            html:
+              '<h1>Scan the code</h1><br><img src="cid:img1"><a href="' +
+              charge.receipt_url +
+              '"><button>Receipt</button></a>',
+            attachments: [
+              {
+                filename: "new1.png",
+                path: "./public/new1.png",
+                cid: "img1"
+              }
+            ]
+          };
+          transporter_shop.sendMail(mailOptions, function(error, info) {
+            if (error) {
+              console.log(error);
+            } else {
+              console.log("Email sent: " + info.response);
+            }
+          });
+          transporter.sendMail(mailOptions_shop, function(error, info) {
             if (error) {
               console.log(error);
             } else {

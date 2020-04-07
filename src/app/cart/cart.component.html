@@ -13,23 +13,23 @@
                         <div class="about-introduce">
                             <div class="box">
                                 <div class="row">
-                                    <div class="col-md-8">
-                                        <h1>Product Name</h1>
+                                    <div class="col-md-8" *ngFor='let item of cart; let i = index'>
+                                        <h1>{{cart[i].name}}</h1>
+                                        <div class="col-md-4">
+                                            <img src="../../assets/images/course-grid/1.jpg">
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <p>Quantity: 10</p>
+                                                <p>Quantity: {{cart[i].quantity}}</p>
                                             </div>
                                             <div class="col-md-4">
-                                                <p>Price: $10000</p>
+                                                <p>Price: ${{cart[i].price}}</p>
                                             </div>
                                             <div class="col-md-4">
-                                                <p>Total: $10000</p>
+                                                <p>Total: ${{cart[i].quantity*cart[i].price}}</p>
                                             </div>
                                         </div>
-                                        <p class="removetext">Remove</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="../../assets/images/course-grid/1.jpg">
+                                        <p class="removetext" (click)='remove_item(i)'>Remove</p>
                                     </div>
                                 </div>
                             </div>
@@ -46,21 +46,21 @@
                             <p>Price</p>
                         </div>
                         <div class="col-sm-6 text-right">
-                            <p>$200</p>
+                            <p>${{order_total}}</p>
                         </div>
                         <hr>
                         <div class="col-sm-6">
                             <p>Tax</p>
                         </div>
                         <div class="col-sm-6 text-right">
-                            <p>$200</p>
+                            <p>${{tax}}</p>
                         </div>
                         <hr class="finalhr">
                         <div class="col-sm-6 totalcol">
                             <p>Total</p>
                         </div>
                         <div class="col-sm-6 text-right totalcol">
-                            <p>$600</p>
+                            <p>${{order_total+tax}}</p>
                         </div>
                     </div>
                     <div class="text-center">

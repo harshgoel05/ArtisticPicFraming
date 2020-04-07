@@ -22,6 +22,20 @@
                             fit in a standard vehicle.
                             To remedy this situation, we can transfer any size piece safely and timely to all of our
                             customers.<br> -->
+                             <div class="row" >
+                                <div class="col-sm-6" *ngFor='let design of design_array;let i=index'>
+                                    <div class="card" style="width: 18rem;">
+                                        <img class="card-img-top" src={{design_array[i].image}} alt="Card image cap">
+                                        <div class="card-body">
+                                          <h5 class="card-title">{{design_array[i].name}}</h5>
+                                          <p class="card-text">Price : {{design_array[i].price}} </p>
+                                          <p class="card-text">Quantity : <input type="number" name='quantity' style="width:5em" [(ngModel)]='quantity[i]'> </p>
+                                          <button class="btn btn-success" (click)="_addtocart(i)">Add to cart</button>
+                                          <h4 class="">added</h4>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
