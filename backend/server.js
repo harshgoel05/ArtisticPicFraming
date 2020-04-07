@@ -40,7 +40,7 @@ app.get("/payment", (req, res) => {
 
 // Charge Route
 app.post("/charge", (req, res) => {
-  const amount = 2500;
+  const amount = req.body.amount*100;
   console.log(req.body);
   const idempotencyKey = uuid();
 

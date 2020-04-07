@@ -105,7 +105,35 @@ router.post('/add_address&email',(req,res)=>{
         res.status(200).send({'Address':true,'email':true})
     })
 })
+router.post('/current_amount',(req,res)=>{
+    const amount = req.body
+    User.updateOne({user_id:amount.user_id},{amount_pay:amount.amount},(err,data)=>{
+        if(err)
+        {
+            res.status(400)
+        }
+        else{
+            res.status(200).send({'amount':'success'})
+        }
+    }) 
 
+
+})
+router.post('/cart_amount',(req,res)=>{
+    const userid=req.body
+    User.findOne({user_id:userid.user_id},{amount_pay:1},(err,data)=>{
+        if(err)
+        {
+            console.log(err)
+
+        }
+        else
+        {
+            res.status(200).send(data)
+            console.log(data)
+        }
+    })
+})
 
 
 

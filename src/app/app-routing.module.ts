@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: "canvas-stretching", component: CanvasStretchingComponent },
   { path: "payment", component: PaymentComponent },
   { path: "blog", component: BlogComponent },
-  { path: "payment", component: PaymentComponent },
+  
   { path: "cart", component: CartComponent },
   { path: "**", component: Error404Component }
 ];

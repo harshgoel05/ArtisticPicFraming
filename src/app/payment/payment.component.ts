@@ -23,6 +23,7 @@ export class PaymentComponent implements OnInit {
   card: StripeElement;
   email: String;
   payment_status: Boolean;
+  amount:any
 
   elementsOptions: ElementsOptions = {
     locale: "auto"
@@ -34,15 +35,22 @@ export class PaymentComponent implements OnInit {
     private back: BackendService,
     private fb: FormBuilder,
     private stripeService: StripeService,
-    private route: Router
-  ) {}
+    private route: Router,
+    
+  ) {
+   
+  }
   ngOnInit() {
+    this.back.cart_amount_retrieve({'user_id':localStorage.getItem('user_id')}).subscribe(res=>{
+      this.amount=res.amount_pay
+      console.log(res)
+    })
     this.stripeTest = this.fb.group({
       name: ["", [Validators.required, Validators.minLength(4)]],
-      email: ["", [Validators.required]],
+      email: ["", [Validators.required, Validators.email]],
       line1: ["", [Validators.required]],
       city: ["", [Validators.required]],
-      postalcode: ["", [Validators.required]],
+      postalcode: ["", [Validators.required,Validators.minLength(4)]],
       state: ["", [Validators.required]],
       country: ["", [Validators.required]]
     });
@@ -68,6 +76,7 @@ export class PaymentComponent implements OnInit {
         this.card.mount("#card-element");
       }
     });
+    
   }
   private payment_details = { stripeEmail: "" };
   buy() {
@@ -79,6 +88,7 @@ export class PaymentComponent implements OnInit {
     if (obj.token) {
     this.back.payment({'user_id':localStorage.getItem('user_id'),'stripeEmail':this.stripeTest.get('email').value,
                       'stripeToken':obj.token.id,
+                      'amount':this.amount, 
                       'name':name,
                       'address':{line1:this.stripeTest.get('line1').value,
                                  postal_code:this.stripeTest.get('postalcode').value ,

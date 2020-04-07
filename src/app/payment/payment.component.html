@@ -3,25 +3,30 @@
   <form novalidate (ngSubmit)="buy()" [formGroup]="stripeTest">
     <div class="col-lg-6">
       <label>Name</label>
-      <input class="form-control" type="text" formControlName="name" placeholder="Jane Doe" required>
+      <input class="form-control" type="text" formControlName="name" placeholder="Jane Doe" >
+      <div class='alert' style="color:red" *ngIf="stripeTest.controls['name'].errors?.required && stripeTest.controls['name'].touched">Please Enter Full name</div>
     </div>
     <div class="col-lg-6">
       <label>Email</label>
       <input class="form-control" formControlName="email" type="email" >
+      <div class='alert' style="color:red" *ngIf="stripeTest.controls['email'].touched && stripeTest.controls['email'].errors?.email ">Enter correct email</div>
     </div>
     <div class="col-lg-6">
       <label>Adress<br>line1</label>
-      <input class="form-control " formControlName="line1" type="email" [(ngModel)]='text' >
+      <input class="form-control " formControlName="line1" type="email"  >
+      <div class='alert' style="color:red" *ngIf="stripeTest.controls['line1'].errors?.required && stripeTest.controls['line1'].touched">required</div>
     </div>
-  <div class="col-lg-6">
+  <div class="col-lg-6">d
     <div class="row">
       <div class="col">
         <label>City</label>
         <input class="form-control w-40" formControlName="city" type="text" >
+        <div class='alert' style="color:red" *ngIf="stripeTest.controls['city'].errors?.required && stripeTest.controls['city'].touched">required</div>
       </div>  
       <div class="col">
         <label>PostalCode</label>
         <input class="form-control w-40" formControlName="postalcode" type="text" >
+        <div class='alert' style="color:red" *ngIf="stripeTest.controls['postalcode'].errors?.required && stripeTest.controls['postalcode'].touched">required</div>
       </div>
     </div>
   </div>
@@ -30,10 +35,12 @@
       <div class="col">
         <label>state</label>
         <input class="form-control w-40" formControlName="state" type="text" >
+        <div class='alert' style="color:red" *ngIf="stripeTest.controls['state'].errors?.required && stripeTest.controls['state'].touched">required</div>
       </div>  
       <div class="col">
         <label>Country</label>
         <input class="form-control w-40" formControlName="country" type="text" >
+        <div class='alert' style="color:red" *ngIf="stripeTest.controls['country'].errors?.required && stripeTest.controls['country'].touched">required</div>
       </div>
     </div>
   </div>   
@@ -42,14 +49,16 @@
   <div id="card-element" class="field"></div>
  </div>
   <div class="col-lg-12">
-  <button class="btn btn-success w-25" type="submit">
+  <button class="btn btn-success w-25"  type="submit" [disabled]="!stripeTest.valid">
   Proceed to pay
   </button>
+  
   </div>
 
 </form>
   <br>
   </div>
+  
   <div *ngIf='payment_status'>
     <div class="alert alert-dark lg-6 w-50 " role="alert">
       Payment is succesfully completed 

@@ -5,6 +5,7 @@ const userSchema=new Schema
         user_id:String,
         email:String,
         address:Object,
+        amount_pay:Number,
         cart:[]
         
 
