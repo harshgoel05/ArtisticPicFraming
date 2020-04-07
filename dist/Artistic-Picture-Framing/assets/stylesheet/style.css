@@ -1386,11 +1386,7 @@ input::-webkit-input-placeholder {
 }
 
 /*blog*/
-.bg-header {
-  background-image: url("../images/header/01.png");
-  height: 579px;
-  background-repeat: no-repeat;
-}
+
 .header-blog .header-menu {
   float: right;
 }

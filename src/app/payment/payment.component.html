@@ -7,52 +7,52 @@
     </div>
     <div class="col-lg-6">
       <label>Email</label>
-      <input class="form-control" formControlName="email" type="email" >
+      <input class="form-control" formControlName="email" type="email">
     </div>
     <div class="col-lg-6">
       <label>Adress<br>line1</label>
-      <input class="form-control " formControlName="line1" type="email" [(ngModel)]='text' >
+      <input class="form-control " formControlName="line1" type="email">
     </div>
-  <div class="col-lg-6">
-    <div class="row">
-      <div class="col">
-        <label>City</label>
-        <input class="form-control w-40" formControlName="city" type="text" >
-      </div>  
-      <div class="col">
-        <label>PostalCode</label>
-        <input class="form-control w-40" formControlName="postalcode" type="text" >
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col">
+          <label>City</label>
+          <input class="form-control w-40" formControlName="city" type="text">
+        </div>
+        <div class="col">
+          <label>PostalCode</label>
+          <input class="form-control w-40" formControlName="postalcode" type="text">
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="row">
-      <div class="col">
-        <label>state</label>
-        <input class="form-control w-40" formControlName="state" type="text" >
-      </div>  
-      <div class="col">
-        <label>Country</label>
-        <input class="form-control w-40" formControlName="country" type="text" >
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col">
+          <label>state</label>
+          <input class="form-control w-40" formControlName="state" type="text">
+        </div>
+        <div class="col">
+          <label>Country</label>
+          <input class="form-control w-40" formControlName="country" type="text">
+        </div>
       </div>
     </div>
-  </div>   
-  <div class="col-lg-6">
-    <label>Enter Card Details</label>
-  <div id="card-element" class="field"></div>
- </div>
-  <div class="col-lg-12">
-  <button class="btn btn-success w-25" type="submit">
-  Proceed to pay
-  </button>
-  </div>
+    <div class="col-lg-6">
+      <label>Enter Card Details</label>
+      <div id="card-element" class="field"></div>
+    </div>
+    <div class="col-lg-12">
+      <button class="btn btn-success w-25" type="submit">
+        Proceed to pay
+      </button>
+    </div>
 
-</form>
+  </form>
   <br>
+</div>
+<div *ngIf='payment_status'>
+  <div class="alert alert-dark lg-6 w-50 " role="alert">
+    Payment is succesfully completed
   </div>
-  <div *ngIf='payment_status'>
-    <div class="alert alert-dark lg-6 w-50 " role="alert">
-      Payment is succesfully completed 
-    </div>
 
-  </div>
+</div>
