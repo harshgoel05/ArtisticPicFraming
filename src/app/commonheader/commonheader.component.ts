@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: "app-commonheader",
   templateUrl: "./commonheader.component.html",
-  styleUrls: ["./commonheader.component.css"]
+  styleUrls: ["./commonheader.component.css"],
 })
 export class CommonheaderComponent implements OnInit {
   public href: string = "";
