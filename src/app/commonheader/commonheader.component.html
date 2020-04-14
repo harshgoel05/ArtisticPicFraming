@@ -1,5 +1,9 @@
-<div class="bg-header">
-    <div class="flat-header-blog">
+<div class="bg-header" [ngClass]="{
+    'even' :eventrue,
+    'odd' : oddtrue,
+    'neutral' : neutraltrue
+}">
+    <div class=" flat-header-blog">
         <div class="top-bar clearfix">
             <div class="container">
                 <div class="row">
