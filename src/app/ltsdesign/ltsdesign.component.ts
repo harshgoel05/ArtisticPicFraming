@@ -9,6 +9,8 @@ import { BackendService } from '../backend.service';
 export class LtsdesignComponent implements OnInit {
   design_array=[{'image':'','name':'Frame1','price':100},{'image':'','name':'Frame2','price':200},{'image':'','name':'Frame3','price':300}]
   private quantity
+  private added;
+  errormessage;
   constructor(private back:BackendService) { }
 
   ngOnInit() {
@@ -22,6 +24,11 @@ export class LtsdesignComponent implements OnInit {
                           'item':{'image':this.design_array[i].image,'name':this.design_array[i].name,'price':this.design_array[i].price,'quantity':this.quantity[i]}}
     this.back.addtocart(_design_details).subscribe(res=>{
       console.log('added to cart')
+      this.added=new Array(res.length).fill(0)
+      this.added[i]=1;
+
+    },err => {
+      this.errormessage="Cannot Add to Cart"
     })
   }
 }

@@ -35,6 +35,9 @@ export class CartComponent implements OnInit {
         this.order_total+=this.cart[i].quantity*this.cart[i].price;
       }
       console.log(res)
+      if(res.cart.length==0){
+        this.tax=0
+      }
     })
   }
   remove_item(i){

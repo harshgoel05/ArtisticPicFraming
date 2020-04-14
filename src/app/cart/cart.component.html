@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-success"  (click)="payment()">Proceed to Pay</button>
+                        <button class="btn btn-success"  (click)="payment()" [disabled]="tax==0">Proceed to Pay</button>
                     </div>
                 </div>
             </div>

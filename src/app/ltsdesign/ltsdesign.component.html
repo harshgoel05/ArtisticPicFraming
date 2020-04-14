@@ -1,4 +1,4 @@
-<app-commonheader></app-commonheader>
+<app-commonheader></app-commonheader>   
 <div class="flat-about pd-about clearfix">
     <div class="container">
         <div class="row">
@@ -10,7 +10,9 @@
                         </div>
                     </div>
                     <div class="textbox-content">
+                        <button routerLink="/cart" class="btn btn-success" style="width:10em;">Go to Cart</button>
                         <div class="about-introduce">
+                            
                             <!-- In addition to quality preservation framing and design, we also offer a service that very
                             few framing shops even attempt
                             to tackle. Not only will we deliver the finalized piece to you but we will also pick the
@@ -31,11 +33,12 @@
                                           <p class="card-text">Price : {{design_array[i].price}} </p>
                                           <p class="card-text">Quantity : <input type="number" name='quantity' style="width:5em" [(ngModel)]='quantity[i]'> </p>
                                           <button class="btn btn-success" (click)="_addtocart(i)">Add to cart</button>
-                                          <!--<h4 *ngIf='' class="">added</h4>-->
+                                          <h4 *ngIf='added[i]' class="">added</h4>
                                         </div>
-                                      </div>
+                                    </div>
                                 </div>
                             </div>
+                            <h4 *ngIf='errormessage' >{{errormessage}}</h4>
                         </div>
                     </div>
                 </div>
