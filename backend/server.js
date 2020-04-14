@@ -53,7 +53,7 @@ app.get("/", function(req, res) {
 });
 let amount;
 
-app.get("/payment", (req, res) => {
+app.get("/payment", (req, res)=> {
   res.render("payment", {
     stripePublishableKey: "pk_test_Jo6Z70CqWXvzFqGYB8XLGxQo00kZVvz4Kk"
   });
@@ -107,6 +107,10 @@ app.post("/charge", (req, res) => {
               console.log(err);
             }
           });
+          User.updateOne({user_id:req.body.user_id},{$set:{cart:[]}},(err,data)=>{
+            console.log('cart is empty  ')
+          })
+        
           
 
           var mailOptions = {

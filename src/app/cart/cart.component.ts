@@ -10,7 +10,7 @@ import { Router } from '@angular/router'
 export class CartComponent implements OnInit {
   private order_total=0;
   private tax=200
-  private cart=[]
+  private cart:any
   constructor(private back:BackendService,
               private route:Router) { }
   
