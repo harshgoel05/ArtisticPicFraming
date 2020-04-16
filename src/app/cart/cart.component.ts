@@ -12,7 +12,9 @@ export class CartComponent implements OnInit {
   private tax=200
   private cart:any
   constructor(private back:BackendService,
-              private route:Router) { }
+              private route:Router) {
+                
+               }
   
 
   ngOnInit() {

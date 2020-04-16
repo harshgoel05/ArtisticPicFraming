@@ -1,0 +1,18 @@
+.bg-header {
+  background-image: url("../../assets/images/nav/9999.png");
+  height: 579px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.menu-bar #logo {
+  margin: 13px 0 20px 0;
+}
+.even {
+  background-image: url("../../assets/images/nav/333.png");
+  height: 579px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+a {
+  cursor: pointer;
+}
