@@ -23,6 +23,7 @@ export class BackendService {
   cart_amount_url=this.BaseUrl+'/api/cart_amount'
   cart_data_url=this.BaseUrl+'/api/show_cart'
   remove_from_cart=this.BaseUrl+'/api/remove_from_cart'
+  getProductsURL='/api/getProducts'
   user_id={'user_id':localStorage.getItem('user_id')}
 
 
@@ -51,6 +52,9 @@ export class BackendService {
   }
   remove_item(data){
     return this.http.post<any>(this.remove_from_cart,data)
+  }
+  getProducts(){
+    return this.http.get(this.BaseUrl+this.getProductsURL)
   }
   
 }

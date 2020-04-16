@@ -16,7 +16,9 @@ export class CartComponent implements OnInit {
   
 
   ngOnInit() {
+    this.order_total=0;
     this.cart_retrieve();
+    
     
 
   }

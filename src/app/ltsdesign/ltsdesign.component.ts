@@ -7,28 +7,41 @@ import { BackendService } from '../backend.service';
   styleUrls: ['./ltsdesign.component.css']
 })
 export class LtsdesignComponent implements OnInit {
-  design_array=[{'image':'','name':'Frame1','price':100},{'image':'','name':'Frame2','price':200},{'image':'','name':'Frame3','price':300}]
-  private quantity
-  private added;
+  design_array : any
+  quantity = new Array
+  added = new Array;
   errormessage;
+  successmessage;
   constructor(private back:BackendService) { }
 
   ngOnInit() {
-    let i=this.design_array.length
-    this.quantity = new Array(i)
-    this.quantity.fill(1)
+    this.back.getProducts()
+    .subscribe( res => {
+      this.design_array = res
+      let size=this.design_array.length
+      console.log(this.design_array)
+      let i;
+      for(i=0;i<size;i++){
+      this.quantity.push(1)
+      }
+    })
   }
   _addtocart(i){
     
     let  _design_details={'user_id':localStorage.getItem('user_id'),
                           'item':{'image':this.design_array[i].image,'name':this.design_array[i].name,'price':this.design_array[i].price,'quantity':this.quantity[i]}}
-    this.back.addtocart(_design_details).subscribe(res=>{
+    this.back.addtocart(_design_details)
+    .subscribe(res=>{
       console.log('added to cart')
-      this.added=new Array(res.length).fill(0)
+      let j;
+      for(j=0;j<res.length;j++){
+        this.added.push(0);
+      }
       this.added[i]=1;
-
-    },err => {
-      this.errormessage="Cannot Add to Cart"
+      this.successmessage=res.message
+      }
+      ,err => {
+      this.errormessage=err.message;
     })
   }
 }
