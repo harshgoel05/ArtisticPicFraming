@@ -22,11 +22,23 @@ router.get('/',(req,res)=>{
 INDEX
 1. Creating ID for new user                                                Working
 2. Fetch Products                                                          Working
-3. 
+3. Add to cart                                                             working
+4. Remove Item from Cart                                                   working
+5. Change the Quantity Of Item in Cart
+6. Get Cart                                                                working
+7. Adding user's Address and Email                                         
+8. Updates total Amount of Cart's Products                                 working
+9. Get total amount of cart's product                                      working
 
 */
 
 //Id Generation for new user
+/*
+Request Body
+{
+    user_id:'Id generaed at frontend',
+}
+*/
 router.post('/create_id',(req,res)=>
 {
     const user=req.body
@@ -172,12 +184,12 @@ router.post('/show_cart',(req,res)=>
             console.log("cannot fetch data")
         }
         else
-        {   
+        {   console.log(data)
             res.status(200).send(data)
         }
     })
 })
-//Adding user's Adress and Email 
+//Adding user's Address and Email 
 /*
 Request Body
 {

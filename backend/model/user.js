@@ -7,16 +7,6 @@ const userSchema=new Schema
         address:Object,
         amount_pay:Number,
         cart:[]
-        
-
-        
-    
-        
-     
-
-
-
-
 }
 )
 module.exports=mongoose.model('cart',userSchema,'user')
