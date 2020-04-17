@@ -52,6 +52,7 @@
   <button class="btn btn-success w-25"  type="submit" [disabled]="!stripeTest.valid">
   Proceed to pay
   </button>
+  <span class="alert" *ngIf="errormessage">{{errormessage}}</span> 
   
   </div>
 
@@ -60,8 +61,7 @@
   </div>
   
   <div *ngIf='payment_status'>
-    <div class="alert alert-dark lg-6 w-50 " role="alert">
+    <div class="alert alert-dark lg-6 w-50 ml-1" role="alert">
       Payment is succesfully completed 
     </div>
-
   </div>

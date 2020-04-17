@@ -24,6 +24,7 @@ export class PaymentComponent implements OnInit {
   email: String;
   payment_status: Boolean;
   amount: any;
+  errormessage;
 
   elementsOptions: ElementsOptions = {
     locale: "auto",
@@ -103,6 +104,9 @@ export class PaymentComponent implements OnInit {
             setTimeout(() => {
               this.route.navigate(["/Home"]);
             }, 50000);
+          },
+          err => {
+            this.errormessage="Payement Failed"
           });
       } else {
       }

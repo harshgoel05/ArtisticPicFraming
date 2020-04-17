@@ -115,7 +115,7 @@ app.post("/charge", (req, res) => {
         )
         .catch(err => {
           console.log(err);
-          res.send({ payment: false });
+          res.status(400).send({message:"payment failed"});
         })
         .then(charge => {
           if (charge.status == "succeeded")
