@@ -9,6 +9,7 @@ import { Subject } from 'rxjs';
 export class BackendService {
 
   constructor(private http:HttpClient) { }
+  ByCart:boolean = false
   private amount_sub=new Subject<any>()
   amount_obsv$=this.amount_sub.asObservable();
   amount_state(state:any){
@@ -56,5 +57,6 @@ export class BackendService {
   getProducts(){
     return this.http.get(this.BaseUrl+this.getProductsURL)
   }
+
   
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../backend.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ltsdesign',
@@ -12,7 +13,7 @@ export class LtsdesignComponent implements OnInit {
   added = new Array;
   errormessage;
   successmessage;
-  constructor(private back:BackendService) { }
+  constructor(private back:BackendService,private route:Router) { }
 
   ngOnInit() {
     this.back.getProducts()
@@ -43,5 +44,8 @@ export class LtsdesignComponent implements OnInit {
       ,err => {
       this.errormessage=err.message;
     })
+  }
+  cart(){
+    this.route.navigate(['/cart'])
   }
 }

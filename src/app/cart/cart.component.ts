@@ -13,11 +13,12 @@ export class CartComponent implements OnInit {
   private cart:any
   constructor(private back:BackendService,
               private route:Router) {
-                
+
                }
   
 
   ngOnInit() {
+    this.back.ByCart=false
     this.order_total=0;
     this.cart_retrieve();
     
@@ -30,6 +31,7 @@ export class CartComponent implements OnInit {
       {
         console.log(res)
       })
+      this.back.ByCart=true
     this.route.navigate(['/payment']);
   }
   cart_retrieve(){
@@ -52,4 +54,5 @@ export class CartComponent implements OnInit {
       console.log(res)
     })
   }
+ 
 }

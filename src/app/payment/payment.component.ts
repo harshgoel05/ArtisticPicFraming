@@ -99,6 +99,7 @@ export class PaymentComponent implements OnInit {
           .subscribe((res) => {
             console.log(res);
             this.payment_status = res.payment;
+            this.back.ByCart=false
             setTimeout(() => {
               this.route.navigate(["/Home"]);
             }, 50000);
